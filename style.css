@@ -22,6 +22,10 @@ body {
   animation: fadeIn 0.8s ease-in-out forwards;
 }
 
+#page3 {
+  max-width: 900px; /* Expanded width to accommodate side photos on desktop */
+}
+
 .page.active {
   display: block;
 }
@@ -66,7 +70,7 @@ h2 {
   margin-bottom: 20px;
 }
 
-/* --- FIXED IMAGE CONTAINER --- */
+/* --- MAIN IMAGE --- */
 .photo-frame {
   width: 100%;
   max-width: 100%;
@@ -80,13 +84,36 @@ h2 {
 
 .photo-frame img {
   width: 100%;
-  height: auto; /* Keeps original aspect ratio */
-  max-height: 70vh; /* Prevents vertical images from overflowing the screen */
-  object-fit: contain; /* Ensures 100% of the image is visible without cropping */
+  height: auto;
+  max-height: 70vh;
+  object-fit: contain;
   display: block;
   border-radius: 14px;
 }
-/* ---------------------------- */
+
+/* --- PAGE 3 LAYOUT & SIDE PHOTOS --- */
+.letter-container {
+  display: flex;
+  align-items: stretch; /* Pictures stretch to match letter height */
+  justify-content: center;
+  gap: 20px;
+}
+
+.side-photo {
+  flex: 0 0 200px; /* Defines photo width on desktop */
+  border-radius: 15px;
+  overflow: hidden;
+  border: 4px solid white;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  background-color: #fff;
+}
+
+.side-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures photos fill the entire space without stretching */
+  display: block;
+}
 
 .memory-text {
   font-size: 1.1rem;
@@ -104,6 +131,7 @@ h2 {
 }
 
 .letter-body {
+  flex: 1;
   background: #fff8f9;
   padding: 20px;
   border-radius: 15px;
@@ -111,7 +139,7 @@ h2 {
   font-size: 1rem;
   line-height: 1.8;
   color: #444;
-  max-height: 380px;
+  max-height: 500px; /* Controls max height of text scroll */
   overflow-y: auto;
   white-space: pre-line;
 }
@@ -146,4 +174,22 @@ h2 {
 
 .btn:active {
   transform: translateY(1px);
+}
+
+/* Responsive adjustment for tablet/mobile screens */
+@media (max-width: 800px) {
+  #page3 {
+    max-width: 550px; /* Return to standard card width */
+  }
+  .letter-container {
+    flex-direction: column; /* Stack top-to-bottom */
+  }
+  .side-photo {
+    width: 100%;
+    height: 250px;
+    flex: none;
+  }
+  .letter-body {
+    max-height: none; /* Let text determine height */
+  }
 }
