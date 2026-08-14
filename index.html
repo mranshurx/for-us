@@ -6,6 +6,8 @@
   <title>For My Special One ❤️</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- Canvas Confetti Library for Rain Effect -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
 
@@ -26,7 +28,6 @@
     <div class="card">
       <h2>Remembered this day? ✨</h2>
       
-      <!-- Photo updated to myimage.png -->
       <div class="photo-frame">
         <img src="myimage.png" alt="Our Special Day" id="memory-photo">
       </div>
@@ -62,6 +63,39 @@
       </div>
 
       <div class="signature">Forever & Always Yours ♾️</div>
+
+      <!-- Button to start the Game -->
+      <div class="center-btn">
+        <button class="btn game-btn" onclick="nextPage(4)">Game ata khelu boi 😒</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGE 4: Game Question -->
+  <section id="page4" class="page">
+    <div class="card">
+      <h2>muk kimn bhal pao 😒</h2>
+      <div class="options-container">
+        <button class="btn opt-btn" onclick="nextPage(5)">😒bhtt bsi bsi bsi....😒</button>
+        <button class="btn opt-btn secondary-btn" id="no-btn" onclick="wrongOption()">npauu e 😰</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGE 5: Gift Option -->
+  <section id="page5" class="page">
+    <div class="card">
+      <div class="emoji-header">🎁</div>
+      <h2>Correct answer! 😁</h2>
+      <button class="btn gift-btn" onclick="triggerSurprise()">atu lo gifttt😒</button>
+    </div>
+  </section>
+
+  <!-- PAGE 6: Hugs and Kisses Rain + WhatsApp Message -->
+  <section id="page6" class="page">
+    <div class="card final-card">
+      <div class="rain-emojis">🫂💋🤗💖🫂💋🤗💖</div>
+      <p class="final-text">hbo atya wp t jaa rply de...😒 moi bsi dri nthaku on</p>
     </div>
   </section>
 
@@ -72,6 +106,48 @@
       });
       document.getElementById('page' + pageNum).classList.add('active');
       window.scrollTo(0, 0);
+    }
+
+    // Playful dodge effect if she tries clicking "npauu e 😰"
+    function wrongOption() {
+      alert("Ayyy eitu option choose kribo noari! 😒 Click the other option! ❤️");
+    }
+
+    // Hugs & Kisses Rain Trigger
+    function triggerSurprise() {
+      nextPage(6);
+      
+      // Canvas Confetti using Hugs & Kisses emojis
+      var scalar = 2.5;
+      var kiss = confetti.shapeFromText({ text: '💋', scalar });
+      var hug = confetti.shapeFromText({ text: '🫂', scalar });
+      var heart = confetti.shapeFromText({ text: '💖', scalar });
+
+      var duration = 5 * 1000;
+      var animationEnd = Date.now() + duration;
+
+      (function frame() {
+        confetti({
+          particleCount: 3,
+          angle: 60,
+          spread: 55,
+          origin: { x: 0 },
+          shapes: [kiss, hug, heart],
+          scalar
+        });
+        confetti({
+          particleCount: 3,
+          angle: 120,
+          spread: 55,
+          origin: { x: 1 },
+          shapes: [kiss, hug, heart],
+          scalar
+        });
+
+        if (Date.now() < animationEnd) {
+          requestAnimationFrame(frame);
+        }
+      }());
     }
   </script>
 </body>
