@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For My Special One ❤️</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Floating Hearts Background -->
+  <div class="heart-bg"></div>
+
+  <!-- PAGE 1: Intro -->
+  <section id="page1" class="page active">
+    <div class="card">
+      <div class="emoji-header">💖</div>
+      <h1>Hey, here's something for you</h1>
+      <button class="btn" onclick="nextPage(2)">click here melaaa cutuuu</button>
+    </div>
+  </section>
+
+  <!-- PAGE 2: Memory & Photo -->
+  <section id="page2" class="page">
+    <div class="card">
+      <h2>Remembered this day? ✨</h2>
+      
+      <!-- Replace 'our-photo.jpg' with your photo link/file name -->
+      <div class="photo-frame">
+        <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=800&q=80" alt="Our Special Day" id="memory-photo">
+      </div>
+
+      <p class="memory-text">
+        It was the most luckiest day I have ever experienced ... it was the day I found someone who reallyy cares a lot for me 💕
+      </p>
+
+      <button class="btn" onclick="nextPage(3)">Click for your message 💌</button>
+    </div>
+  </section>
+
+  <!-- PAGE 3: The Long Letter -->
+  <section id="page3" class="page">
+    <div class="card letter-card">
+      <h2>Happy 2nd Anniversary! 🎉❤️</h2>
+      
+      <div class="letter-body">
+        <p>happyyyyyy 2 year aniversaryyyy murrr kolizaaaaa.......i loveeeeeee uuuu so muchhhhhhh murrr jannnnnnn......todayyy is very special for usss..........murr tur lgtt thkiii aii homoyburr knke nuu par hoi jaihh gm e npau moii .......ikhibo njnu moi nijr bhabhat jiti likhisu ruh buji jaa.....ooo toh moi kosilu kiiii moi tur htii prtii pole protii jonomte tur htie thkibo bisaru......you you and only you......15 aug 2024 hei dintur pra ajilke tur hti jimn memories bnalu i realyyy like and enjoyed being with you....and i want that we stay like this forever..lgale jnekua e problems nahok ami solve krim aruh thkim anelogei......ktyau ami blg nhou.....and i loveee uu soooo muchhh murrr kolizaaaaaaaaaaaaaaa.........moi tur obihone akdmm thkiboo nuaruuuu.....aibar holeuu logg nai puaa butt then alsoo sending u the most heaviest loves to you.......along with hugs and kisses.......aruhh bsss imn e likhisuu .....kblee tu bht asehhh....koi thkile khtom e nhboo........again wishing us happppyyy 2 year aniversaryyyy...... 💕✨🤗🫂💋</p>
+      </div>
+
+      <div class="signature">Forever & Always Yours ♾️</div>
+    </div>
+  </section>
+
+  <script>
+    function nextPage(pageNum) {
+      document.querySelectorAll('.page').forEach(page => {
+        page.classList.remove('active');
+      });
+      document.getElementById('page' + pageNum).classList.add('active');
+      window.scrollTo(0, 0);
+    }
+  </script>
+</body>
+</html>
