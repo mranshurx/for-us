@@ -23,7 +23,7 @@ body {
 }
 
 #page3 {
-  max-width: 950px; /* Wide enough for side photos and letter */
+  max-width: 950px;
 }
 
 .page.active {
@@ -70,7 +70,7 @@ h2 {
   margin-bottom: 20px;
 }
 
-/* --- PAGE 2 MAIN IMAGE --- */
+/* --- MAIN IMAGE --- */
 .photo-frame {
   width: 100%;
   max-width: 100%;
@@ -91,16 +91,16 @@ h2 {
   border-radius: 14px;
 }
 
-/* --- PAGE 3 LAYOUT & UNCROPPED SIDE PHOTOS --- */
+/* --- PAGE 3 LAYOUT & SIDE PHOTOS --- */
 .letter-container {
   display: flex;
-  align-items: center; /* Centers photos vertically alongside letter */
+  align-items: center;
   justify-content: center;
   gap: 15px;
 }
 
 .side-photo {
-  flex: 0 0 220px; /* Width dedicated to each photo */
+  flex: 0 0 220px;
   width: 220px;
   border-radius: 15px;
   overflow: hidden;
@@ -113,7 +113,7 @@ h2 {
   width: 100%;
   height: auto;
   max-height: 450px;
-  object-fit: contain; /* Shows 100% full image without cropping */
+  object-fit: contain;
   display: block;
   border-radius: 10px;
 }
@@ -156,6 +156,12 @@ h2 {
   font-weight: bold;
 }
 
+.center-btn {
+  text-align: center;
+  margin-top: 25px;
+}
+
+/* BUTTONS */
 .btn {
   background: linear-gradient(45deg, #ff4d6d, #ff758f);
   color: white;
@@ -168,6 +174,7 @@ h2 {
   box-shadow: 0 5px 15px rgba(255, 77, 109, 0.4);
   transition: all 0.3s ease;
   display: inline-block;
+  text-decoration: none;
 }
 
 .btn:hover {
@@ -177,6 +184,37 @@ h2 {
 
 .btn:active {
   transform: translateY(1px);
+}
+
+/* GAME & OPTIONS */
+.options-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.secondary-btn {
+  background: #6c757d;
+  box-shadow: 0 5px 15px rgba(108, 117, 125, 0.3);
+}
+
+.secondary-btn:hover {
+  background: #5a6268;
+}
+
+/* FINAL PAGE */
+.rain-emojis {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  animation: pulse 1s infinite alternate;
+}
+
+.final-text {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #d63384;
+  line-height: 1.6;
 }
 
 /* Mobile Adjustments */
